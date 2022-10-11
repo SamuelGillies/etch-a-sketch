@@ -1,11 +1,12 @@
 #container {
-    height: 60vh; 
-    width: 60vw; 
-    display: flex; 
+    height: 60vh;
+    width: 60vh; 
+    display: grid; 
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border: 2px solid black; 
 }
 
 .cell {
-    height: 5vh; 
-    width: 5vw;
     border: 2px solid red;
 }

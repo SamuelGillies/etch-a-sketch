@@ -2,11 +2,17 @@
 
 let container = document.getElementById('container'); 
 
-for (i=0; i<16; i++) {
-    let cell = document.createElement('div'); 
-    cell.className = 'cell'; 
-    container.append(cell);
+function gridCreate(dim) {
+    for (i = 0; i < dim; i++) {
+        let cell = document.createElement('div'); 
+        cell.className = 'cell'; 
+        container.append(cell);
+    }
 }
+let dim = 64; 
+gridCreate(dim); 
+
+
 
 // define active/inactive classes
 
