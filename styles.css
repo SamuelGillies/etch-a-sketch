@@ -1,9 +1,11 @@
 #container {
     height: 60vh; 
     width: 60vw; 
+    display: flex; 
 }
 
 .cell {
     height: 5vh; 
     width: 5vw;
+    border: 2px solid red;
 }
