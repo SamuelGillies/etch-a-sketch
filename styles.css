@@ -1,6 +1,9 @@
-div {
-    height: 200px; 
-    width: 200px; 
+#container {
+    height: 60vh; 
+    width: 60vw; 
+}
 
-
+.cell {
+    height: 5vh; 
+    width: 5vw;
 }
