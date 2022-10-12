@@ -13,15 +13,24 @@ body {
     height: 60vh;
     width: 60vh; 
     display: grid; 
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
     border: 2px solid black; 
 }
 
 .cell {
     border: 0.5px solid grey;
+    background-color: snow;
 }
 
-.active {
-    background-color: blue; 
+.hover {
+    background-color: grey; 
+}
+
+.noHover {
+    background-color: snow; 
+}
+
+.clicked {
+    background-color: black; 
 }
