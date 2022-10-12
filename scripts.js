@@ -2,10 +2,11 @@
 
 let container = document.getElementById('container');   // assign div #container to var container
 
+
 function gridCreate(dim) {
     for (i = 0; i < dim; i++) {                         // loop through number of cells determined by dim value
         let cell = document.createElement('div');       // create a div for each loop
-        cell.className = 'cell noHover';                        // assign each div a class of .cell for each loop 
+        cell.className = 'cell noHover';                // assign each div a class of .cell for each loop 
         cell.setAttribute("id", `cell${i}`);
         container.append(cell);                         // append each new div to the div #container for each loop
     }
@@ -13,8 +14,15 @@ function gridCreate(dim) {
 
 let dim = 16;                                           // set number of cells to create
 let dimSquare = Math.pow(dim, 2);                           // calculate square root of number of cells to derive x and y values of grid
-gridCreate(dimSquare);                                        // run function to create grid
 
+let slider = document.getElementById('myRange');
+slider.oninput = function() {
+    dim = slider.value;
+  }
+
+console.log(dim);
+
+gridCreate(dimSquare);                                        // run function to create grid
 
 // add/subtract classes as necessary
 
