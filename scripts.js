@@ -16,13 +16,32 @@ function gridClear() {
     clearCont.innerHTML = '';
 };
 
-// set grid dimensions
+// set default for startup
 gridCreate(64);
 container.style.gridTemplateColumns = 'repeat(' + 8 + ', 1fr)';
 container.style.gridTemplateRows = 'repeat(' + 8 + ', 1fr)';
 let cells = document.querySelectorAll('.cell');                             // obtain nodelist with all items with class .cell
-
 let slider = document.getElementById('slide');
+
+// hover active 
+cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
+cell.classList.add('hover');
+cell.classList.remove('noHover');
+}));
+
+// hover inactive
+cells.forEach(cell => cell.addEventListener('mouseout', function() {
+cell.classList.add('noHover');
+cell.classList.remove('hover');
+}));
+
+// after click
+cells.forEach(cell => cell.addEventListener('click', function() {
+cell.classList.add('clicked');
+}));
+    
+
+// instigate a new grid and behaviours when slider value is changed
 
 slider.addEventListener('input', function() {                               // gridgeneration function occurs in event listener so that grid is generated on each change of slider
     gridClear();                                                            // clear grid
