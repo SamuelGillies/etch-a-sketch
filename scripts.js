@@ -25,30 +25,36 @@ let cells = document.querySelectorAll('.cell');                             // o
 let slider = document.getElementById('slide');
 
 slider.addEventListener('input', function() {                               // gridgeneration function occurs in event listener so that grid is generated on each change of slider
-    gridClear();
-    let dim = slider.value;                                                 // clear grid
+    gridClear();                                                            // clear grid
+    let dim = slider.value;                                                 
     let dimSquare = Math.pow(slider.value, 2);                              // calculate square root of number of cells to derive x and y values of grid. value2 = number of cells generated
-    container.style.gridTemplateColumns = 'repeat(' + dim + ', 1fr)';
+    container.style.gridTemplateColumns = 'repeat(' + dim + ', 1fr)';       // recalculate number of rows and columns based on slider value 
     container.style.gridTemplateRows = 'repeat(' + dim + ', 1fr)';
     gridCreate(dimSquare);                                                  // generate grid
-    cells = document.querySelectorAll('.cell'); 
-});
+    cells = document.querySelectorAll('.cell');                             
 
-// add/subtract classes as necessary
-
-// hover active 
-cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
+    // add/subtract classes as necessary
+    // hover active 
+    cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
     cell.classList.add('hover');
     cell.classList.remove('noHover');
-}));
+    }));
 
-// hover inactive
-cells.forEach(cell => cell.addEventListener('mouseout', function() {
+    // hover inactive
+    cells.forEach(cell => cell.addEventListener('mouseout', function() {
     cell.classList.add('noHover');
     cell.classList.remove('hover');
-}));
+    }));
 
-// after click
-cells.forEach(cell => cell.addEventListener('click', function() {
+    // after click
+    cells.forEach(cell => cell.addEventListener('click', function() {
     cell.classList.add('clicked');
-}));
+    }));
+
+});
+
+
+
+
+
+
