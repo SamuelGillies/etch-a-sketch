@@ -11,24 +11,30 @@ function gridCreate(dim) {
     }
 }; 
 
-
-
+function gridClear() {
+    let clearCont = document.getElementById("container");
+    clearCont.innerHTML = '';
+};
 
 // set grid dimensions
+gridCreate(64);
+container.style.gridTemplateColumns = 'repeat(' + 8 + ', 1fr)';
+container.style.gridTemplateRows = 'repeat(' + 8 + ', 1fr)';
+let cells = document.querySelectorAll('.cell');                             // obtain nodelist with all items with class .cell
 
-let slider = document.getElementById('myRange');
+let slider = document.getElementById('slide');
 
-slider.addEventListener('input', function() {                   // gridgeneration function occurs in event listener so that grid is generated on each change of slider
-    let dimSquare = Math.pow(slider.value, 2);                  // calculate square root of number of cells to derive x and y values of grid. value2 = number of cells generated
-    
-
-                                                                // clear grid
-    gridCreate(dimSquare);                                      // generate grid
+slider.addEventListener('input', function() {                               // gridgeneration function occurs in event listener so that grid is generated on each change of slider
+    gridClear();
+    let dim = slider.value;                                                 // clear grid
+    let dimSquare = Math.pow(slider.value, 2);                              // calculate square root of number of cells to derive x and y values of grid. value2 = number of cells generated
+    container.style.gridTemplateColumns = 'repeat(' + dim + ', 1fr)';
+    container.style.gridTemplateRows = 'repeat(' + dim + ', 1fr)';
+    gridCreate(dimSquare);                                                  // generate grid
+    cells = document.querySelectorAll('.cell'); 
 });
 
 // add/subtract classes as necessary
-
-let cells = document.querySelectorAll('.cell');             // obtain nodelist with all items with class .cell
 
 // hover active 
 cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
