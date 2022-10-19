@@ -2,7 +2,6 @@
 
 let container = document.getElementById('container');   // assign div #container to var container
 
-
 function gridCreate(dim) {
     for (i = 0; i < dim; i++) {                         // loop through number of cells determined by dim value
         let cell = document.createElement('div');       // create a div for each loop
@@ -12,17 +11,20 @@ function gridCreate(dim) {
     }
 }; 
 
-let dim = 16;                                           // set number of cells to create
-let dimSquare = Math.pow(dim, 2);                           // calculate square root of number of cells to derive x and y values of grid
+
+
+
+// set grid dimensions
 
 let slider = document.getElementById('myRange');
-slider.oninput = function() {
-    dim = slider.value;
-  }
 
-console.log(dim);
+slider.addEventListener('input', function() {                   // gridgeneration function occurs in event listener so that grid is generated on each change of slider
+    let dimSquare = Math.pow(slider.value, 2);                  // calculate square root of number of cells to derive x and y values of grid. value2 = number of cells generated
+    
 
-gridCreate(dimSquare);                                        // run function to create grid
+                                                                // clear grid
+    gridCreate(dimSquare);                                      // generate grid
+});
 
 // add/subtract classes as necessary
 
