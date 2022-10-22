@@ -36,10 +36,15 @@ cell.classList.remove('hover');
 }));
 
 // after click
-cells.forEach(cell => cell.addEventListener('click', function() {
-cell.classList.add('clicked');
-}));
-    
+    cells.forEach(cell => cell.addEventListener('click', function() {
+    cell.classList.add('clicked');
+    }));
+
+    cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
+        if (event.buttons == 1) {
+            cell.classList.add('clicked');
+            }
+        }));
 
 // instigate a new grid and behaviours when slider value is changed
 
@@ -70,7 +75,13 @@ slider.addEventListener('input', function() {                               // g
     cell.classList.add('clicked');
     }));
 
-});
+    cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
+        if (event.buttons == 1) {
+            cell.classList.add('clicked');
+            }
+        }));
+
+    });
 
 
 
