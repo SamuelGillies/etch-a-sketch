@@ -36,15 +36,21 @@ cell.classList.remove('hover');
 }));
 
 // after click
-    cells.forEach(cell => cell.addEventListener('click', function() {
-    cell.classList.add('clicked');
+cells.forEach(cell => cell.addEventListener('click', function() {
+cell.classList.add('clicked');
+}));
+
+cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
+    if (event.buttons == 1) {
+        cell.classList.add('clicked');
+        }
     }));
 
-    cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
-        if (event.buttons == 1) {
-            cell.classList.add('clicked');
-            }
-        }));
+document.getElementById('clearBtn').addEventListener('click', e => {
+    cells.forEach(cell => cell.classList.remove('clicked'));
+    }); 
+
+document.getElementById("valBox").innerHTML = '8x8'; 
 
 // instigate a new grid and behaviours when slider value is changed
 
@@ -55,8 +61,10 @@ slider.addEventListener('input', function() {                               // g
     container.style.gridTemplateColumns = 'repeat(' + dim + ', 1fr)';       // recalculate number of rows and columns based on slider value 
     container.style.gridTemplateRows = 'repeat(' + dim + ', 1fr)';
     gridCreate(dimSquare);                                                  // generate grid
-    cells = document.querySelectorAll('.cell');                             
-
+    cells = document.querySelectorAll('.cell');
+    document.getElementById("valBox").innerHTML = dim + 'x' + dim; 
+                        
+    
     // add/subtract classes as necessary
     // hover active 
     cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
@@ -80,8 +88,8 @@ slider.addEventListener('input', function() {                               // g
             cell.classList.add('clicked');
             }
         }));
+});
 
-    });
 
 
 
