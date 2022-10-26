@@ -16,6 +16,25 @@ function gridClear() {
     clearCont.innerHTML = '';
 };
 
+let clicks = 0; 
+
+function rgbGen() {
+    const red = Math.floor(Math.random() * 255); 
+    const green = Math.floor(Math.random() * 255); 
+    const blue = Math.floor(Math.random() * 255); 
+
+    if (clicks < 10) {
+        clicks += 1; 
+    } else {
+        clicks = 10; 
+    }
+
+    return 'rgb(' + ((red) - (red * (clicks / 10))) + ',' + ((green) - (green * (clicks / 10))) + ',' + ((blue) - (blue * (clicks / 10))) + ')';
+}
+
+
+
+
 // set default for startup
 gridCreate(64);
 container.style.gridTemplateColumns = 'repeat(' + 8 + ', 1fr)';
@@ -37,28 +56,18 @@ cells.forEach(cell => cell.addEventListener('mouseout', function() {
 
 // after click
 cells.forEach(cell => cell.addEventListener('click', function() {
-    const red = (Math.floor(Math.random() * 255)); 
-    const green = Math.floor(Math.random() * 255); 
-    const blue = Math.floor(Math.random() * 255); 
-
-    let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-    cell.style.backgroundColor = color; 
+    cell.style.backgroundColor = rgbGen();
 }));
 
 cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
     if (event.buttons == 1) {
-        const red = (Math.floor(Math.random() * 255)); 
-        const green = Math.floor(Math.random() * 255); 
-        const blue = Math.floor(Math.random() * 255); 
-
-        let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-        cell.style.backgroundColor = color;     
+        cell.style.backgroundColor = rgbGen();     
     }
 }));
 
 document.getElementById('clearBtn').addEventListener('click', e => {
-    cells.forEach(cell => cell.classList.remove('clicked'));
-    cells.forEach(cell => cell.style.backgroundColor = 'rgb(255,255,255)'); 
+    cells.forEach(cell => cell.style.backgroundColor = 'rgb(255,255,255)');
+    clicks = 0; 
 }); 
 
 document.getElementById("valBox").innerHTML = '8x8'; 
@@ -90,22 +99,12 @@ slider.addEventListener('input', function() {                               // g
 
     // after click
     cells.forEach(cell => cell.addEventListener('click', function() {
-        const red = (Math.floor(Math.random() * 255)); 
-        const green = Math.floor(Math.random() * 255); 
-        const blue = Math.floor(Math.random() * 255); 
-
-        let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-        cell.style.backgroundColor = color; 
+        cell.style.backgroundColor = rgbGen(); 
     }));
 
     cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
         if (event.buttons == 1) {
-            const red = (Math.floor(Math.random() * 255)); 
-            const green = Math.floor(Math.random() * 255); 
-            const blue = Math.floor(Math.random() * 255); 
-            
-            let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-            cell.style.backgroundColor = color; 
+            cell.style.backgroundColor = rgbGen(); 
             }
     }));
 });
