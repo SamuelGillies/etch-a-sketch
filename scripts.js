@@ -25,30 +25,32 @@ let slider = document.getElementById('slide');
 
 // hover active 
 cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
-cell.classList.add('hover');
-cell.classList.remove('noHover');
+    cell.classList.add('hover');
+    cell.classList.remove('noHover');
 }));
 
 // hover inactive
 cells.forEach(cell => cell.addEventListener('mouseout', function() {
-cell.classList.add('noHover');
-cell.classList.remove('hover');
+    cell.classList.add('noHover');
+    cell.classList.remove('hover');
 }));
 
 // after click
 cells.forEach(cell => cell.addEventListener('click', function() {
-cell.classList.add('clicked');
+    let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+    cell.style.backgroundColor = color; 
 }));
 
 cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
     if (event.buttons == 1) {
-        cell.classList.add('clicked');
-        }
-    }));
+        let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+        cell.style.backgroundColor = color;     
+    }
+}));
 
 document.getElementById('clearBtn').addEventListener('click', e => {
     cells.forEach(cell => cell.classList.remove('clicked'));
-    }); 
+}); 
 
 document.getElementById("valBox").innerHTML = '8x8'; 
 
@@ -63,29 +65,30 @@ slider.addEventListener('input', function() {                               // g
     gridCreate(dimSquare);                                                  // generate grid
     cells = document.querySelectorAll('.cell');
     document.getElementById("valBox").innerHTML = dim + 'x' + dim; 
-                        
     
     // add/subtract classes as necessary
     // hover active 
     cells.forEach(cell => cell.addEventListener('mouseenter', function() {      // loop through nodelist using forEach function, adding and removing classes as necessary
-    cell.classList.add('hover');
-    cell.classList.remove('noHover');
+        cell.classList.add('hover');
+        cell.classList.remove('noHover');
     }));
 
     // hover inactive
     cells.forEach(cell => cell.addEventListener('mouseout', function() {
-    cell.classList.add('noHover');
-    cell.classList.remove('hover');
+        cell.classList.add('noHover');
+        cell.classList.remove('hover');
     }));
 
     // after click
     cells.forEach(cell => cell.addEventListener('click', function() {
-    cell.classList.add('clicked');
+        let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+        cell.style.backgroundColor = color; 
     }));
 
     cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
         if (event.buttons == 1) {
-            cell.classList.add('clicked');
+            let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+            cell.style.backgroundColor = color; 
             }
         }));
 });
