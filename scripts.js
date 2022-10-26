@@ -37,19 +37,28 @@ cells.forEach(cell => cell.addEventListener('mouseout', function() {
 
 // after click
 cells.forEach(cell => cell.addEventListener('click', function() {
-    let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+    const red = (Math.floor(Math.random() * 255)); 
+    const green = Math.floor(Math.random() * 255); 
+    const blue = Math.floor(Math.random() * 255); 
+
+    let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
     cell.style.backgroundColor = color; 
 }));
 
 cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
     if (event.buttons == 1) {
-        let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+        const red = (Math.floor(Math.random() * 255)); 
+        const green = Math.floor(Math.random() * 255); 
+        const blue = Math.floor(Math.random() * 255); 
+
+        let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
         cell.style.backgroundColor = color;     
     }
 }));
 
 document.getElementById('clearBtn').addEventListener('click', e => {
     cells.forEach(cell => cell.classList.remove('clicked'));
+    cells.forEach(cell => cell.style.backgroundColor = 'rgb(255,255,255)'); 
 }); 
 
 document.getElementById("valBox").innerHTML = '8x8'; 
@@ -81,16 +90,24 @@ slider.addEventListener('input', function() {                               // g
 
     // after click
     cells.forEach(cell => cell.addEventListener('click', function() {
-        let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+        const red = (Math.floor(Math.random() * 255)); 
+        const green = Math.floor(Math.random() * 255); 
+        const blue = Math.floor(Math.random() * 255); 
+
+        let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
         cell.style.backgroundColor = color; 
     }));
 
     cells.forEach(cell => cell.addEventListener('mouseover', function(event) {
         if (event.buttons == 1) {
-            let color = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+            const red = (Math.floor(Math.random() * 255)); 
+            const green = Math.floor(Math.random() * 255); 
+            const blue = Math.floor(Math.random() * 255); 
+            
+            let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
             cell.style.backgroundColor = color; 
             }
-        }));
+    }));
 });
 
 
