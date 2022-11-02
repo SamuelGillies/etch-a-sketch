@@ -18,6 +18,43 @@ body {
     border: 2px solid black; 
 }
 
+.slidecontainer {
+    width: 60vh;
+    display: flex; 
+    border: 2px solid black; 
+    margin: 10px; 
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.slider {
+    padding-top: 5vh; 
+    width: 30vh;
+}
+
+#valBox {
+    font-size: 18px; 
+    margin: 0;
+    padding-bottom: 2vh; 
+
+}
+
+#clearBtn {
+    width: 30vh;
+    height: 5vh;
+    border: 2px solid black; 
+    border-radius: 4px; 
+    background-color: white; 
+    font-size: 18px; 
+
+}
+
+#clearBtn:hover {
+    background-color: grey; 
+    color: white; 
+}
+
 .cell {
     border: 0.5px solid grey;
     background-color: snow;

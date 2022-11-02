@@ -16,24 +16,14 @@ function gridClear() {
     clearCont.innerHTML = '';
 };
 
-let clicks = 0; 
-
 function rgbGen() {
+
     const red = Math.floor(Math.random() * 255); 
     const green = Math.floor(Math.random() * 255); 
     const blue = Math.floor(Math.random() * 255); 
 
-    if (clicks < 10) {
-        clicks += 1; 
-    } else {
-        clicks = 10; 
-    }
-
     return 'rgb(' + ((red) - (red * (clicks / 10))) + ',' + ((green) - (green * (clicks / 10))) + ',' + ((blue) - (blue * (clicks / 10))) + ')';
 }
-
-
-
 
 // set default for startup
 gridCreate(64);
@@ -54,8 +44,16 @@ cells.forEach(cell => cell.addEventListener('mouseout', function() {
     cell.classList.remove('hover');
 }));
 
+let clicks = 0; 
+
 // after click
 cells.forEach(cell => cell.addEventListener('click', function() {
+    
+    if (clicks < 10) {
+        clicks += 1; 
+    } else {
+        clicks = 10; 
+    }
     cell.style.backgroundColor = rgbGen();
 }));
 
